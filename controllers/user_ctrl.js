@@ -138,3 +138,8 @@ module.exports.editProfile = async function (req, res){
     // const plates = await Plates.deleteOne({_id : req.body.id}).select('-__v');
     // res.send(plates);
 }
+
+module.exports.getAgents = async function (req, res){
+    const users = await Users.find({role: 'agent'}).sort({_id: -1}).select('-__v');
+    res.send(users);
+}

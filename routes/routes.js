@@ -14,6 +14,7 @@ var user_ctrl = require('../controllers/user_ctrl');
 var ticket_ctrl = require('../controllers/ticket_ctrl');
 var ticket_issue_ctrl = require('../controllers/ticket_issue_ctrl');
 var agent_permissions_ctrl = require('../controllers/agent_permissions_ctrl');
+var reporting_ctrl = require('../controllers/reporting_ctrl');
 const { authorization } = require('../helpers/auth_helper');
 const { upload } = require('../helpers/common_helper');
 
@@ -114,6 +115,7 @@ Routes.route('/addUser').post(user_ctrl.addUser);
 Routes.route('/editUser').post(user_ctrl.editUser);
 Routes.route('/getUserProfile').post(user_ctrl.getUserProfile);
 Routes.route('/editProfile').post(user_ctrl.editProfile);
+Routes.route('/getAgents').get(user_ctrl.getAgents);
 
 //routes for tickets
 Routes.route('/getTickets').post(ticket_ctrl.getTickets);
@@ -135,4 +137,11 @@ Routes.route('/payTicket').post(ticket_issue_ctrl.payTicket);
 
 //routes for agent_permissions
 Routes.route('/getAgentPermissions').post(agent_permissions_ctrl.getAgentPermissions);
+
+//routes for Reporting
+Routes.route('/generateReport').post(reporting_ctrl.generateReport);
+Routes.route('/exportPDF').post(reporting_ctrl.exportPDF);
+Routes.route('/generateTicketIssuedReport').post(reporting_ctrl.generateTicketIssuedReport);
+Routes.route('/exportTicketIssuedPDF').post(reporting_ctrl.exportTicketIssuedPDF);
+
 module.exports = Routes;

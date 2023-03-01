@@ -63,6 +63,11 @@ const Ticket_Issued = mongoose.model(
             required : false,
             minlength : 0
         },
+        paid_at : {
+            type : Date,
+            required : false,
+            minlength : 0
+        },
         paymentMethod: {
             type : String,
             required : false,
@@ -70,6 +75,11 @@ const Ticket_Issued = mongoose.model(
         },
         payment_gateway: {
             type : String,
+            required : false,
+            minlength : 0
+        },
+        amount: {
+            type : Number,
             required : false,
             minlength : 0
         },

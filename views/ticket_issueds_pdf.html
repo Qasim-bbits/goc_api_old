@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello world!</title>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <img src="https://connectedparking.ca/static/media/logo.855f12a13b9b43fc99753db08e368069.svg" width="20%"/>
+    </div>
+    <h1 style="font-family: monospace;color:#093897;">Tickets Issued Report</h1>
+    <table style="border-collapse: collapse;">
+      <tr style="background: #093897; color: aliceblue;">
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">City</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Zone</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Ticket</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Issued By</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Plate</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Ticket Number</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Parking Status</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Ticket Status</th>
+        <th style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">Issued At</th>
+      </tr>
+      {{#each report}}
+      <tr style="border-bottom: 1px solid #c7c6c6;">
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.city.city_name}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.zone.zone_name}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.ticket.ticket_name}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.issued_by.email}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.plate}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.ticket_num}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.parking_status}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.ticket_status}}</td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;">{{this.issued_at}}</td>
+      </tr>
+      {{/each}}
+      <tr>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; " colspan="6"></td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; border-bottom: 1px solid #c7c6c6;" colspan="2">Tickets issued</td>
+        <td style="text-align: right;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; border-bottom: 1px solid #c7c6c6;">{{total.total_tickets_issued}}</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;" colspan="6"></td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; border-bottom: 1px solid #c7c6c6;" colspan="2">Tickets paid</td>
+        <td style="text-align: right;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; border-bottom: 1px solid #c7c6c6;">{{total.total_tickets_paid}}</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace;" colspan="6"></td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; border-bottom: 1px solid #c7c6c6;" colspan="2">Tickets unpaid</td>
+        <td style="text-align: right;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; border-bottom: 1px solid #c7c6c6;">{{total.total_tickets_unpaid}}</td>
+      </tr>
+      <tr>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; font-weight: bold;" colspan="6"></td>
+        <td style="text-align: left;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; font-weight: bold; border-bottom: 1px solid #c7c6c6;" colspan="2">Total Amount</td>
+        <td style="text-align: right;max-width: 100%;white-space: nowrap;padding: 7px 16px;font-family: monospace; font-weight: bold; border-bottom: 1px solid #c7c6c6;">{{total.amount}}</td>
+      </tr>
+    </table>
+  </body>
+</html>

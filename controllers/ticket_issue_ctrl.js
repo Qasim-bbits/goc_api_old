@@ -116,6 +116,7 @@ module.exports.payTicket = async function(req,res){
       });
       req.body.paymentMethod = payment.payment_method;
       req.body.ticket_status = 'paid';
+      req.body.paid_at = moment().format();
       Ticket_Issued.findByIdAndUpdate(req.body.id, req.body, {new: true})
       .then(response =>{
           res.send(response);
